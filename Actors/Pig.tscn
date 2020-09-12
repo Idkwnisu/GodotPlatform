@@ -1,0 +1,203 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://Actors/KinematicBody2D.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Kings and Pigs/Sprites/03-Pig/Pig.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 30.3086, 26.1096 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Attack"
+length = 0.47
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 22, 23, 24, 25, 26 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Death"
+length = 0.502
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 27, 28, 29, 30 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 0.870551 ),
+"update": 1,
+"values": [ 17, 18 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 2.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.56
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 11, 11, 13, 14, 15, 16 ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "Attack"
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "Death"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "Hit"
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "Run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+
+[sub_resource type="AnimationNodeStateMachine" id=25]
+states/Attack/node = SubResource( 7 )
+states/Attack/position = Vector2( 356, 153 )
+states/Death/node = SubResource( 8 )
+states/Death/position = Vector2( 305, 340 )
+states/Hit/node = SubResource( 9 )
+states/Hit/position = Vector2( 131, 174 )
+states/Idle/node = SubResource( 10 )
+states/Idle/position = Vector2( 136, 60 )
+states/Run/node = SubResource( 11 )
+states/Run/position = Vector2( 329, 53 )
+transitions = [ "Idle", "Run", SubResource( 12 ), "Run", "Idle", SubResource( 13 ), "Run", "Attack", SubResource( 14 ), "Idle", "Attack", SubResource( 15 ), "Attack", "Run", SubResource( 16 ), "Idle", "Hit", SubResource( 17 ), "Run", "Hit", SubResource( 18 ), "Attack", "Hit", SubResource( 19 ), "Hit", "Idle", SubResource( 20 ), "Run", "Death", SubResource( 21 ), "Attack", "Death", SubResource( 22 ), "Hit", "Death", SubResource( 23 ), "Idle", "Death", SubResource( 24 ) ]
+start_node = "Run"
+graph_offset = Vector2( -77, 39 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=26]
+
+[sub_resource type="RectangleShape2D" id=27]
+extents = Vector2( 19.0971, 19.7964 )
+
+[node name="Pig" type="Node2D"]
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource( 1 )
+attackDistance = 70
+aggroDistance = 10.0
+
+[node name="Pivot" type="Node2D" parent="KinematicBody2D"]
+scale = Vector2( 3, 3 )
+
+[node name="Sprite" type="Sprite" parent="KinematicBody2D/Pivot"]
+texture = ExtResource( 2 )
+vframes = 3
+hframes = 11
+frame = 24
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+position = Vector2( 0.397565, 10.4586 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="KinematicBody2D"]
+anims/Attack = SubResource( 2 )
+anims/Death = SubResource( 3 )
+anims/Hit = SubResource( 4 )
+anims/Idle = SubResource( 5 )
+anims/Run = SubResource( 6 )
+
+[node name="Tree" type="AnimationTree" parent="KinematicBody2D"]
+tree_root = SubResource( 25 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 26 )
+
+[node name="LeftAttack" type="Node2D" parent="KinematicBody2D"]
+position = Vector2( -66.8999, 11.2894 )
+
+[node name="RightAttack" type="Node2D" parent="KinematicBody2D"]
+position = Vector2( 58.5374, 12.1256 )
+
+[node name="AttackArea" type="Area2D" parent="KinematicBody2D"]
+position = Vector2( 6.27185, 10.035 )
+
+[node name="AttackCollision" type="CollisionShape2D" parent="KinematicBody2D/AttackArea"]
+position = Vector2( 0.418175, 1.25438 )
+shape = SubResource( 27 )
+disabled = true
+
+[node name="LeftBound" type="Node2D" parent="."]
+position = Vector2( -52.24, 0 )
+
+[node name="RightBound" type="Node2D" parent="."]
+position = Vector2( 54.46, 0 )

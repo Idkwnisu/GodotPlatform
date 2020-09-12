@@ -1,0 +1,343 @@
+[gd_scene load_steps=32 format=2]
+
+[ext_resource path="res://Actors/King.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Kings and Pigs/Sprites/01-King Human/Run (78x58).png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Kings and Pigs/Sprites/01-King Human/Attack (78x58).png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Kings and Pigs/Sprites/01-King Human/Ground (78x58).png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Kings and Pigs/Sprites/01-King Human/Idle (78x58).png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Kings and Pigs/Sprites/01-King Human/Jump (78x58).png" type="Texture" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 25.5188, 37.0075 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "KingAttack"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pivot/Sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pivot/Sprite:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pivot/Sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pivot/Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 2.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pivot/Sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pivot/Sprite:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 11 ]
+}
+
+[sub_resource type="Animation" id=5]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 6 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pivot/Sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pivot/Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 1.75
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 4, 5, 6, 7 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pivot/Sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 8 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pivot/Sprite:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ) ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "KingAttack"
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "KingGround"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "KingIdle"
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "KingJump"
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "KingRun"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+priority = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+
+[sub_resource type="AnimationNodeStateMachine" id=22]
+states/KingAttack/node = SubResource( 7 )
+states/KingAttack/position = Vector2( 215, 156 )
+states/KingGround/node = SubResource( 8 )
+states/KingGround/position = Vector2( 550, 197 )
+states/KingIdle/node = SubResource( 9 )
+states/KingIdle/position = Vector2( 130, 50 )
+states/KingJump/node = SubResource( 10 )
+states/KingJump/position = Vector2( 573, -9 )
+states/KingRun/node = SubResource( 11 )
+states/KingRun/position = Vector2( 409, 50 )
+transitions = [ "KingIdle", "KingRun", SubResource( 12 ), "KingRun", "KingJump", SubResource( 13 ), "KingJump", "KingGround", SubResource( 14 ), "KingGround", "KingIdle", SubResource( 15 ), "KingIdle", "KingJump", SubResource( 16 ), "KingGround", "KingRun", SubResource( 17 ), "KingIdle", "KingAttack", SubResource( 18 ), "KingAttack", "KingIdle", SubResource( 19 ), "KingRun", "KingIdle", SubResource( 20 ), "KingRun", "KingAttack", SubResource( 21 ) ]
+start_node = "KingIdle"
+graph_offset = Vector2( -41, -16 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=23]
+
+[sub_resource type="GDScript" id=24]
+script/source = "extends AnimationTree
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+var playback : AnimationNodeStateMachinePlayback = $\".\"[\"parameters/playback\"]
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+	
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
+
+[sub_resource type="RectangleShape2D" id=25]
+extents = Vector2( 48.9722, 51.3367 )
+
+[node name="Player" type="Node2D"]
+
+[node name="KingBody" type="KinematicBody2D" parent="."]
+script = ExtResource( 1 )
+gravity = 10.0
+maxSpeed = Vector2( 200, 800 )
+jumpSpeed = -650
+
+[node name="Pivot" type="Node2D" parent="KingBody"]
+position = Vector2( -0.36, 0 )
+scale = Vector2( 3, 3 )
+
+[node name="Sprite" type="Sprite" parent="KingBody/Pivot"]
+position = Vector2( 7.74096, -2.05387 )
+rotation = -2.53518e-006
+texture = ExtResource( 2 )
+hframes = 8
+frame = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KingBody"]
+position = Vector2( 0.651173, -5.20479 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="KingBody"]
+playback_process_mode = 0
+anims/KingAttack = SubResource( 2 )
+anims/KingGround = SubResource( 3 )
+anims/KingIdle = SubResource( 4 )
+anims/KingJump = SubResource( 5 )
+anims/KingRun = SubResource( 6 )
+
+[node name="Tree" type="AnimationTree" parent="KingBody"]
+tree_root = SubResource( 22 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 23 )
+script = SubResource( 24 )
+
+[node name="Camera2D" type="Camera2D" parent="KingBody"]
+current = true
+smoothing_enabled = true
+drag_margin_left = 0.05
+drag_margin_right = 0.05
+
+[node name="AttackArea" type="Area2D" parent="KingBody"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="AttackCollision" type="CollisionShape2D" parent="KingBody/AttackArea"]
+position = Vector2( 92.1949, -16.2152 )
+shape = SubResource( 25 )
+disabled = true
+
+[node name="AttackLeft" type="Node2D" parent="."]
+position = Vector2( -107.02, -13.4355 )
+
+[node name="AttackRight" type="Node2D" parent="."]
+position = Vector2( 94.0481, -14.8253 )
