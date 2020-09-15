@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Actors/King.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Kings and Pigs/Sprites/01-King Human/Run (78x58).png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Sprites/Kings and Pigs/Sprites/01-King Human/Ground (78x58).png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Kings and Pigs/Sprites/01-King Human/Idle (78x58).png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Kings and Pigs/Sprites/01-King Human/Jump (78x58).png" type="Texture" id=6]
+[ext_resource path="res://Actors/Player.gd" type="Script" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 25.5188, 37.0075 )
@@ -284,6 +285,7 @@ func _ready():
 extents = Vector2( 48.9722, 51.3367 )
 
 [node name="Player" type="Node2D"]
+script = ExtResource( 7 )
 
 [node name="KingBody" type="KinematicBody2D" parent="."]
 script = ExtResource( 1 )
@@ -297,10 +299,10 @@ scale = Vector2( 3, 3 )
 
 [node name="Sprite" type="Sprite" parent="KingBody/Pivot"]
 position = Vector2( 7.74096, -2.05387 )
-rotation = -2.53518e-006
-texture = ExtResource( 2 )
-hframes = 8
-frame = 4
+rotation = -2.53518e-06
+texture = ExtResource( 5 )
+hframes = 11
+frame = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KingBody"]
 position = Vector2( 0.651173, -5.20479 )
@@ -341,3 +343,4 @@ position = Vector2( -107.02, -13.4355 )
 
 [node name="AttackRight" type="Node2D" parent="."]
 position = Vector2( 94.0481, -14.8253 )
+[connection signal="Area_Pig_Enter" from="." to="KingBody" method="_on_Player_Area_Pig_Enter"]

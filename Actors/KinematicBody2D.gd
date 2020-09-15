@@ -169,7 +169,7 @@ func update_target():
 
 func _on_AttackArea_body_entered(body):
 	if not dead:
-		
+		AttackCollision.set_disabled(true);
 		health = health -1;
 		if(health < 0):
 			playback.travel("Death");

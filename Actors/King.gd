@@ -38,6 +38,8 @@ var AttackCollision: CollisionShape2D;
 
 var goingRight : bool = true;
 
+export var health: int = 3;
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -127,3 +129,12 @@ func _physics_process(delta):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+
+func _on_Player_Area_Pig_Enter():
+	health = health - 1;
+	#animation
+	#spinta
+	#salute
+	#check if health <0

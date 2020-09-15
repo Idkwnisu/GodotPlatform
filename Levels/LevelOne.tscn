@@ -1,10 +1,9 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Sprites/Kings and Pigs/Sprites/14-TileSets/Terrain (32x32).png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Kings and Pigs/Sprites/12-Live and Coins/Live Bar.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Kings and Pigs/Sprites/12-Live and Coins/Big Heart Idle (18x14).png" type="Texture" id=3]
 [ext_resource path="res://Actors/King..tscn" type="PackedScene" id=4]
-[ext_resource path="res://Sprites/Kings and Pigs/Sprites/01-King Human/Idle (78x58).png" type="Texture" id=5]
 [ext_resource path="res://Actors/Pig.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Actors/Pig.gd" type="Script" id=7]
 
@@ -1658,7 +1657,7 @@ tile_data = PoolIntArray( -655348, 5, 0, 131058, 5, 0, 131059, 5, 0, 131060, 5, 
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Bar" type="TextureRect" parent="CanvasLayer"]
+[node name="HealthBar" type="TextureRect" parent="CanvasLayer"]
 anchor_right = 0.18
 margin_left = 13.9329
 margin_top = 15.788
@@ -1666,8 +1665,11 @@ margin_right = -35.3871
 margin_bottom = 93.788
 texture = ExtResource( 2 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Bar2" type="TextureRect" parent="CanvasLayer/Bar"]
+[node name="Heart1" type="TextureRect" parent="CanvasLayer/HealthBar"]
 margin_left = 36.0
 margin_top = 30.0
 margin_right = 54.0
@@ -1675,7 +1677,7 @@ margin_bottom = 51.0
 texture = SubResource( 31 )
 expand = true
 
-[node name="Bar3" type="TextureRect" parent="CanvasLayer/Bar"]
+[node name="Heart2" type="TextureRect" parent="CanvasLayer/HealthBar"]
 margin_left = 58.0
 margin_top = 29.0
 margin_right = 78.0
@@ -1683,7 +1685,7 @@ margin_bottom = 50.0
 texture = SubResource( 31 )
 expand = true
 
-[node name="Bar4" type="TextureRect" parent="CanvasLayer/Bar"]
+[node name="Heart3" type="TextureRect" parent="CanvasLayer/HealthBar"]
 margin_left = 80.0
 margin_top = 30.0
 margin_right = 100.0
@@ -1694,10 +1696,11 @@ expand = true
 [node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 81.2017, 412.684 )
 
+[node name="KingBody" parent="Player" index="0"]
+collision_mask = 4
+
 [node name="Sprite" parent="Player/KingBody/Pivot" index="0"]
-texture = ExtResource( 5 )
-hframes = 11
-frame = 0
+frame = 9
 
 [node name="CollisionShape2D" parent="Player/KingBody" index="1"]
 position = Vector2( -0.517681, 1.82643 )
@@ -1716,7 +1719,7 @@ maxSpeed = Vector2( 80, 800 )
 horizontalSpeed = 10.0
 
 [node name="Sprite" parent="Pig/KinematicBody2D/Pivot" index="0"]
-frame = 14
+frame = 16
 
 [node name="CollisionShape2D" parent="Pig/KinematicBody2D" index="1"]
 position = Vector2( 6.68246, 19.6953 )
@@ -1724,12 +1727,16 @@ position = Vector2( 6.68246, 19.6953 )
 [node name="Tree" parent="Pig/KinematicBody2D" index="3"]
 parameters/playback = SubResource( 33 )
 
+[node name="AttackArea" parent="Pig/KinematicBody2D" index="6"]
+collision_layer = 2147483652
+
 [node name="LeftBound" parent="Pig" index="1"]
 position = Vector2( -143.509, 91.7323 )
 
 [node name="RightBound" parent="Pig" index="2"]
 position = Vector2( 274.988, 93.1221 )
 [connection signal="body_entered" from="Player/KingBody/AttackArea" to="Pig/KinematicBody2D" method="_on_AttackArea_body_entered"]
+[connection signal="body_entered" from="Pig/KinematicBody2D/AttackArea" to="Player" method="_on_AttackArea_body_entered"]
 
 [editable path="Player"]
 
